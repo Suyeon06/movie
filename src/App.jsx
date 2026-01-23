@@ -1,14 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {dummy} from './movieDummy';
+import Movie from './components/Movies';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="bg-red-500 p-5">tailwindcss</div>
+    <div className="bg-red-200">
+      {
+      dummy.results.map((item) => {
+        return (
+          <Movie
+            title={item.title}
+            poster_path={item.poster_path}
+            vote_average={item.vote_average}
+          />
+        )
+      })}
+    </div>
   )
 }
-
-export default App
